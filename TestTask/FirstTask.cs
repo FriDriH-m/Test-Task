@@ -1,11 +1,14 @@
-﻿
-
-using System.Text;
+﻿using System.Text;
 
 namespace FirstTask
 {
-    internal class StringCompressor
+    public class StringCompressor
     {
+        /// <summary>
+        /// Method for compressing a string
+        /// </summary>
+        /// <param name="str">string that will be compressed</param>
+        /// <returns>Compressed string</returns>
         public string Compress(string str)
         {
             if (string.IsNullOrEmpty(str)) return str;
@@ -35,6 +38,12 @@ namespace FirstTask
 
             return result.ToString();
         }
+
+        /// <summary>
+        /// Method for decompressing a string
+        /// </summary>
+        /// <param name="str">string that will be decompressed</param>
+        /// <returns>Decompressed string</returns>
         public string Decompress(string str)
         {
             if (string.IsNullOrEmpty(str)) return str;
@@ -50,7 +59,7 @@ namespace FirstTask
                 int count = 0;
                 while (index < str.Length && char.IsDigit(str[index]))
                 {
-                    count = count * 10 + (str[index] - '0'); // можно использовать int.Parse(), это понятнее, но менее эффективно
+                    count = count * 10 + (str[index] - '0'); // unicode digit to int
                     index++;
                 }
 
