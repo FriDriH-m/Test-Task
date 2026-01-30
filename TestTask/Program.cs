@@ -1,36 +1,37 @@
-﻿using FirstTask;
-using SecondTask;
+﻿using ThirdTask;
 
 namespace Program
 {
+    
     public static class Program
     {
         public static async Task Main()
         {
-            StringCompressor compressor = new StringCompressor();
+            var processor = new LogProcessor();
+            processor.ParseFile("OutputLogs.txt", "InputLogs.txt", "Problems.txt");
 
-            Console.WriteLine(compressor.Compress("aaabbbbbcdaa"));
-            Console.WriteLine(compressor.Decompress(compressor.Compress("aaabbbbbcdaa")));
+            //StringCompressor compressor = new StringCompressor();
 
-            Server server = new Server();
-            var tasks = new List<Task>();
+            //Console.WriteLine(compressor.Compress("aaabbbbbcdaa"));
+            //Console.WriteLine(compressor.Decompress(compressor.Compress("aaabbbbbcdaa")));
 
-            for (int i = 0; i < 10; i++)
-            {
-                tasks.Add(Task.Run(() =>
-                    server.GetCount()
-                ));
-            }
-            for (int i = 0; i < 10; i++)
-            {
-                int value = 1;
-                tasks.Add(Task.Run(() => server.AddToCount(value)));
-            }
+            //var tasks = new List<Task>();
 
-            await Task.WhenAll(tasks.ToArray());
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    tasks.Add(Task.Run(() =>
+            //        Server.GetCount()
+            //    ));
+            //}
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    int value = 1;
+            //    tasks.Add(Task.Run(() => Server.AddToCount(value)));
+            //}
 
-            Console.WriteLine($"Final count: {server.GetCount()}");
+            //await Task.WhenAll(tasks.ToArray());
+
+            //Console.WriteLine($"Final count: {Server.GetCount()}");
         }
     }
 }
-

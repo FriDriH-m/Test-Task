@@ -5,7 +5,8 @@ namespace FirstTask
     public class StringCompressor
     {
         /// <summary>
-        /// Method for compressing a string
+        /// Compresses the input string by replacing repeated characters with the character followed by the count. 
+        /// Returns the original string if it is null or empty.
         /// </summary>
         /// <param name="str">string that will be compressed</param>
         /// <returns>Compressed string</returns>
@@ -40,7 +41,7 @@ namespace FirstTask
         }
 
         /// <summary>
-        /// Method for decompressing a string
+        /// Restores the original string from its compressed format (e.g., transforms "a3b2" back to "aaabb")
         /// </summary>
         /// <param name="str">string that will be decompressed</param>
         /// <returns>Decompressed string</returns>

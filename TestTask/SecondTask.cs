@@ -1,14 +1,11 @@
-﻿
-using System.Reflection.Metadata.Ecma335;
-
-namespace SecondTask
+﻿namespace SecondTask
 {
-    public class Server
+    public static class Server
     {
-        private ReaderWriterLockSlim _locker = new ReaderWriterLockSlim();
-        private int _count = 0;
+        private static ReaderWriterLockSlim _locker = new ReaderWriterLockSlim();
+        private static int _count = 0;
 
-        public int GetCount()
+        public static int GetCount()
         {
             _locker.EnterReadLock();
             try
@@ -21,7 +18,7 @@ namespace SecondTask
             }
         }
 
-        public void AddToCount(int value)
+        public static void AddToCount(int value)
         {
             _locker.EnterWriteLock();
             try
