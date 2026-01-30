@@ -97,8 +97,7 @@ namespace ThirdTask
             }
 
             try
-            {
-                
+            {                
                 string rawDate = match.Groups[1].Value;
                 DateOnly dateObj = DateOnly.ParseExact(rawDate, "dd.MM.yyyy", CultureInfo.InvariantCulture);
 
